@@ -8,10 +8,12 @@ jQuery.fn.selectButtons = function() {
       buttonsHtml += '<li><a href="#" data-select-index="' + (index + 1) + '">' + $(this).html() + '</li></a>';
     });
     buttonsHtml += '</ul>';
-
     select.after(buttonsHtml);
 
     var selectButtons = $('#selectButtons-' + selectIndex);
+    // Mark current selection as "picked"
+    selectButtons.find('li:nth-child(' + (select.attr("selectedIndex") + 1) + ') a').addClass('picked');
+
     selectButtons.find('a').click(function(e){
       event.preventDefault();
 

@@ -3,6 +3,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="jQuery.selectButtons.js"></script>
     <link rel="stylesheet" type="text/css" href="selectButtons.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>jQuery Select Button Plugin</title>
 
   </head>
@@ -11,15 +12,27 @@
 
     <form method="GET">
       <p>
-      <label for="simple-select">Simple Select</label>
+      <label for="simple-select">Simple Select:</label>
       <select name="simple-select">
         <option>One</option>
         <option>Two</option>
+        <option>Three</option>
       </select>
       </p>
-      <div style="clear:left;">
+
+      <p>
+      <label for="simple-select">Preselected Select:</label>
+      <select name="simple-select">
+        <option>One</option>
+        <option selected="selected">Selected</option>
+        <option>Three</option>
+      </select>
+      </p>
+
+
+      <p>
         <input type="submit"/>
-      </div>
+      </p>
     </form>
 
     <script>
