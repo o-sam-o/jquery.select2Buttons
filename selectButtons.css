@@ -2,11 +2,6 @@
   list-style-type: none;
 }
 
-.select-buttons a {
-  text-decoration: none;
-  font-size: 15px;
-}
-
 .select-buttons li, .select-buttons a {
   float: left;
   min-width: 37px;
@@ -32,6 +27,13 @@
   color: #3c89c8;
   padding: 4px;
   text-align: center;
+  text-decoration: none;
+  font-size: 15px;  
+}
+
+.select-buttons .disabled span {
+  padding: 4px;
+  font-size: 15px;
 }
 
 .select-buttons a:hover, 
@@ -44,21 +46,11 @@
 
 .select-buttons .limited a, 
 .select-buttons .disabled {
-  padding: 3px 0 4px 0;
+  padding: 4px 0 4px 0;
   text-align: center;
 }
 
 .select-buttons .disabled {
   border: 1px solid #d1d1d1;
   color: #999;
-}
-
-.select-buttons span {
-  display: block;
-  font-size: 9px;
-  line-height: 9px;
-}
-
-.select-buttons.long li, .select-buttons.long a { 
-  width: 55px; 
 }

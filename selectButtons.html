@@ -12,23 +12,31 @@
 
     <form method="GET">
       <p>
-      <label for="simple-select">Simple Select:</label>
-      <select name="simple-select">
-        <option>One</option>
-        <option>Two</option>
-        <option>Three</option>
-      </select>
+        <label for="simple-select">Simple Select:</label>
+        <select name="simple-select">
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </select>
       </p>
 
       <p>
-      <label for="simple-select">Preselected Select:</label>
-      <select name="simple-select">
-        <option>One</option>
-        <option selected="selected">Selected</option>
-        <option>Three</option>
-      </select>
+        <label for="preselected-select">Preselected Select:</label>
+        <select name="preselected-select">
+          <option>One</option>
+          <option selected="selected">Selected</option>
+          <option>Three</option>
+        </select>
       </p>
 
+       <p>
+        <label for="disabled-option-select">Disabled Option Select:</label>
+        <select name="disabled-option-select">
+          <option>One</option>
+          <option disabled="disabled">Disabled</option>
+          <option>Three</option>
+        </select>
+      </p>
 
       <p>
         <input type="submit"/>
@@ -36,7 +44,7 @@
     </form>
 
     <script>
-      var select = $('select[name=simple-select]').selectButtons();
+      var select = $('select').selectButtons();
     </script>
 
   </body>

@@ -5,7 +5,11 @@ jQuery.fn.selectButtons = function() {
 
     var buttonsHtml = '<ul class="select-buttons" id="selectButtons-' + selectIndex + '">';
     select.children('option').each(function(index){
-      buttonsHtml += '<li><a href="#" data-select-index="' + (index + 1) + '">' + $(this).html() + '</li></a>';
+      if ($(this).attr('disabled')){
+        buttonsHtml += '<li class="disabled"><span>' + $(this).html() + '</span></li>';
+      }else{
+        buttonsHtml += '<li><a href="#" data-select-index="' + (index + 1) + '">' + $(this).html() + '</a></li>';
+      }
     });
     buttonsHtml += '</ul>';
     select.after(buttonsHtml);
