@@ -13,7 +13,7 @@
     <form method="GET">
       <p>
         <label for="simple-select">Simple Select:</label>
-        <select name="simple-select">
+        <select name="simple-select" class="standard-demo">
           <option>One</option>
           <option>Two</option>
           <option>Three</option>
@@ -22,7 +22,7 @@
 
       <p>
         <label for="preselected-select">Preselected Select:</label>
-        <select name="preselected-select">
+        <select name="preselected-select" class="standard-demo">
           <option>One</option>
           <option selected="selected">Selected</option>
           <option>Three</option>
@@ -31,7 +31,7 @@
 
        <p>
         <label for="disabled-option-select">Disabled Option Select:</label>
-        <select name="disabled-option-select">
+        <select name="disabled-option-select" class="standard-demo">
           <option>One</option>
           <option disabled="disabled">Disabled</option>
           <option>Three</option>
@@ -40,7 +40,7 @@
 
        <p>
         <label for="disabled-select">Disabled Select:</label>
-        <select name="disabled-select" disabled="true">
+        <select name="disabled-select" disabled="true" class="standard-demo">
           <option>One</option>
           <option>Two</option>
           <option>Three</option>
@@ -49,7 +49,16 @@
 
       <p>
         <label for="js-callback-select">JS Callback Select:</label>
-        <select name="js-callback-select">
+        <select name="js-callback-select" class="standard-demo">
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="no-default-select">No Default Select:</label>
+        <select name="no-default-select">
           <option>One</option>
           <option>Two</option>
           <option>Three</option>
@@ -62,11 +71,13 @@
     </form>
 
     <script>
-      $('select').select2Buttons();
-      
+      $('.standard-demo').select2Buttons();
+
       $('select[name=js-callback-select]').change(function() {
         alert('Changed to ' + $(this).val());
       });
+
+      $('select[name=no-default-select]').select2Buttons({noDefault: true});
     </script>
 
   </body>
