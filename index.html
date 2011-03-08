@@ -4,7 +4,7 @@
     <script type="text/javascript" src="jQuery.select2Buttons.js"></script>
     <link rel="stylesheet" type="text/css" href="select2Buttons.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>jQuery Select Button Plugin</title>
+    <title>jQuery Select 2 Buttons Plugin</title>
 
   </head>
   <body>
@@ -38,16 +38,36 @@
         </select>
       </p>
 
+       <p>
+        <label for="disabled-select">Disabled Select:</label>
+        <select name="disabled-select" disabled="true">
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="js-callback-select">JS Callback Select:</label>
+        <select name="js-callback-select">
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </select>
+      </p>
+
       <p>
         <input type="submit"/>
       </p>
     </form>
 
     <script>
-      var select = $('select').selectButtons();
+      $('select').select2Buttons();
+      
+      $('select[name=js-callback-select]').change(function() {
+        alert('Changed to ' + $(this).val());
+      });
     </script>
 
   </body>
 </html>
-
-
