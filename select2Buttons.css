@@ -33,7 +33,9 @@
 
 .select-buttons .disabled span {
   padding: 4px;
+  display: block;
   font-size: 15px;
+  min-width: 37px;
 }
 
 .select-buttons a:hover, 
@@ -46,11 +48,16 @@
 
 .select-buttons .limited a, 
 .select-buttons .disabled {
-  padding: 4px 0 4px 0;
   text-align: center;
 }
 
 .select-buttons .disabled {
   border: 1px solid #d1d1d1;
   color: #999;
+}
+
+.select-buttons .disabled .picked {
+  background: #d1d1d1;
+  border-color: #d1d1d1;
+  color: #FFF;
 }
