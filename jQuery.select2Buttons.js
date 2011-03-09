@@ -6,8 +6,11 @@ jQuery.fn.select2Buttons = function(options) {
     var buttonsHtml = '<div class="select2Buttons">';
 
     var addOptGroup = function(optGroup){
+      if (optGroup.attr('label')){
+        buttonsHtml += '<strong>' + optGroup.attr('label') + '</strong>';
+      }
       buttonsHtml +=  '<ul class="select-buttons">';
-      $(optGroup).children('option').each(function(index){
+      optGroup.children('option').each(function(index){
         if ($(this).attr('disabled') || select.attr('disabled')){
           buttonsHtml += '<li class="disabled"><span>' + $(this).html() + '</span></li>';
         }else{
@@ -22,7 +25,7 @@ jQuery.fn.select2Buttons = function(options) {
       addOptGroup(select);
     }else{
       optGroups.each(function(){
-        addOptGroup(this);
+        addOptGroup($(this));
       });
     }
 
@@ -31,7 +34,7 @@ jQuery.fn.select2Buttons = function(options) {
     select.after(buttonsHtml);
 
     //FIXME find a better way to select the ul we just added to the page
-    var selectButtons = $($('.select-buttons')[$('.select-buttons').length - 1]);
+    var selectButtons = $($('.select2buttons')[$('.select2buttons').length - 1]);
 
     // Mark current selection as "picked"
     if(!options || !options.noDefault){

@@ -1,29 +1,38 @@
-.select-buttons {
-  list-style-type: none;
+.select2Buttons strong {
+  display: block;
+  clear: left;
+  padding-top: 5px;
 }
 
-.select-buttons li, .select-buttons a {
+.select2Buttons ul {
+  list-style-type: none;
+  clear: left;
+  margin: 5px;
+  padding: 0;
+}
+
+.select2Buttons li, .select2Buttons a {
   float: left;
   min-width: 37px;
 }
 
-.select-buttons li { 
+.select2Buttons li { 
   margin: 0 5px 5px 0; 
 }
 
-.select-buttons li a, 
-.select-buttons .limited a, 
-.select-buttons .disabled {
+.select2Buttons li a, 
+.select2Buttons .limited a, 
+.select2Buttons .disabled {
   border: 1px solid #9dc4e3;
   -moz-border-radius: 3px; 
   -webkit-border-radius: 3px; 
 }
 
-.select-buttons li:last-child { 
+.select2Buttons li:last-child { 
   margin-right: 0; 
 }
 
-.select-buttons a {
+.select2Buttons a {
   color: #3c89c8;
   padding: 4px;
   text-align: center;
@@ -31,32 +40,32 @@
   font-size: 15px;  
 }
 
-.select-buttons .disabled span {
+.select2Buttons .disabled span {
   padding: 4px;
   display: block;
   font-size: 15px;
   min-width: 37px;
 }
 
-.select-buttons a:hover, 
-.select-buttons .picked {
+.select2Buttons a:hover, 
+.select2Buttons .picked {
   background: #3c89c8;
   border-color: #3c89c8;
   color: #FFF;    
   text-decoration: none;
 }
 
-.select-buttons .limited a, 
-.select-buttons .disabled {
+.select2Buttons .limited a, 
+.select2Buttons .disabled {
   text-align: center;
 }
 
-.select-buttons .disabled {
+.select2Buttons .disabled {
   border: 1px solid #d1d1d1;
   color: #999;
 }
 
-.select-buttons .disabled .picked {
+.select2Buttons .disabled .picked {
   background: #d1d1d1;
   border-color: #d1d1d1;
   color: #FFF;
