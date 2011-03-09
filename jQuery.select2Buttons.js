@@ -3,15 +3,31 @@ jQuery.fn.select2Buttons = function(options) {
     var select = $(this);
     select.hide();
 
-    var buttonsHtml = '<ul class="select-buttons">';
-    select.children('option').each(function(index){
-      if ($(this).attr('disabled') || select.attr('disabled')){
-        buttonsHtml += '<li class="disabled"><span>' + $(this).html() + '</span></li>';
-      }else{
-        buttonsHtml += '<li><a href="#" data-select-index="' + (index + 1) + '">' + $(this).html() + '</a></li>';
-      }
-    });
-    buttonsHtml += '</ul>';
+    var buttonsHtml = '<div class="select2Buttons">';
+
+    var addOptGroup = function(optGroup){
+      buttonsHtml +=  '<ul class="select-buttons">';
+      $(optGroup).children('option').each(function(index){
+        if ($(this).attr('disabled') || select.attr('disabled')){
+          buttonsHtml += '<li class="disabled"><span>' + $(this).html() + '</span></li>';
+        }else{
+          buttonsHtml += '<li><a href="#" data-select-index="' + (index + 1) + '">' + $(this).html() + '</a></li>';
+        }
+      });
+      buttonsHtml += '</ul>';
+    }
+
+    var optGroups = select.children('optgroup');
+    if (optGroups.length == 0) {
+      addOptGroup(select);
+    }else{
+      optGroups.each(function(){
+        addOptGroup(this);
+      });
+    }
+
+    buttonsHtml += '</div>';
+
     select.after(buttonsHtml);
 
     //FIXME find a better way to select the ul we just added to the page
