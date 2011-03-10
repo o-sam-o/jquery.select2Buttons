@@ -16,7 +16,7 @@ jQuery.fn.select2Buttons = function(options) {
           liHtml.addClass('disabled');
           liHtml.append('<span>' + $(this).html() + '</span>');
         }else{
-          liHtml.append('<a href="#" data-select-index="' + (selectIndex + 1) + '">' + $(this).html() + '</a>');
+          liHtml.append('<a href="#" data-select-index="' + selectIndex + '">' + $(this).html() + '</a>');
         }
 
         // Mark current selection as "picked"
@@ -45,7 +45,7 @@ jQuery.fn.select2Buttons = function(options) {
 
       buttonsHtml.find('a, span').removeClass('picked');
       $(this).addClass('picked');
-      select.find('option:nth-child(' + $(this).attr('data-select-index') + ')').attr('selected', 'selected');
+      $(select.find('option')[$(this).attr('data-select-index')]).attr('selected', 'selected');
       select.trigger('change');
     });
   });
