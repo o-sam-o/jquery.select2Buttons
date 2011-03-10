@@ -3,48 +3,46 @@ jQuery.fn.select2Buttons = function(options) {
     var select = $(this);
     select.hide();
 
-    var buttonsHtml = '<div class="select2Buttons">';
+    var buttonsHtml = $('<div class="select2Buttons"></div>');
 
-    var addOptGroup = function(optGroup){
+    var addOptGroup = function(optGroupIndex, optGroup){
       if (optGroup.attr('label')){
-        buttonsHtml += '<strong>' + optGroup.attr('label') + '</strong>';
+        buttonsHtml.append('<strong>' + optGroup.attr('label') + '</strong>');
       }
-      buttonsHtml +=  '<ul class="select-buttons">';
+      ulHtml =  $('<ul class="select-buttons">');
       optGroup.children('option').each(function(index){
+        liHtml = $('<li></li>');
         if ($(this).attr('disabled') || select.attr('disabled')){
-          buttonsHtml += '<li class="disabled"><span>' + $(this).html() + '</span></li>';
+          liHtml.addClass('disabled');
+          liHtml.append('<span>' + $(this).html() + '</span>');
         }else{
-          buttonsHtml += '<li><a href="#" data-select-index="' + (index + 1) + '">' + $(this).html() + '</a></li>';
+          liHtml.append('<a href="#" data-select-index="' + (index + 1) + '">' + $(this).html() + '</a>');
         }
+
+        // Mark current selection as "picked"
+        if((!options || !options.noDefault) && select.attr("selectedIndex") == (optGroupIndex + index)){
+          liHtml.children('a, span').addClass('picked');
+        }
+        ulHtml.append(liHtml);
       });
-      buttonsHtml += '</ul>';
+      buttonsHtml.append(ulHtml);
     }
 
     var optGroups = select.children('optgroup');
     if (optGroups.length == 0) {
-      addOptGroup(select);
+      addOptGroup(0, select);
     }else{
-      optGroups.each(function(){
-        addOptGroup($(this));
+      optGroups.each(function(index){
+        addOptGroup(index, $(this));
       });
     }
 
-    buttonsHtml += '</div>';
-
     select.after(buttonsHtml);
 
-    //FIXME find a better way to select the ul we just added to the page
-    var selectButtons = $($('.select2buttons')[$('.select2buttons').length - 1]);
-
-    // Mark current selection as "picked"
-    if(!options || !options.noDefault){
-      selectButtons.find('li:nth-child(' + (select.attr("selectedIndex") + 1) + ')').find('a, span').addClass('picked');
-    }
-
-    selectButtons.find('a').click(function(e){
+    buttonsHtml.find('a').click(function(e){
       event.preventDefault();
 
-      selectButtons.find('a').removeClass('picked');
+      buttonsHtml.find('a').removeClass('picked');
       $(this).addClass('picked');
       select.find('option:nth-child(' + $(this).attr('data-select-index') + ')').attr('selected', 'selected');
       select.trigger('change');
