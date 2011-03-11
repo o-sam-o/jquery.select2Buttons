@@ -7,6 +7,8 @@ and if used correctly can provide a better visual representation of the options 
 
 ![select to buttons example](http://o-sam-o.github.com/images/select2ButtonsExample.png)
 
+[Demo available here](http://o-sam-o.github.com/select2Buttons/)
+
 This plugin was inspired by [threadless.com](http://www.threadless.com/) and a question by [GreatPotato](http://forrst.com/people/GreatPotato) on Forrst.
 
 ### Features
@@ -54,8 +56,8 @@ be placed in a seperate UL and the optgroups label will be added to the
 page as a strong tag.
 
 ### Disabling
-The plugin supports disabled options and disabled selects. See the demo
-for examples.
+The plugin supports disabled options and disabled selects. [See the demo
+for examples.](http://o-sam-o.github.com/select2Buttons/)
 
 ### Styling
 The select2Buttons.css is provided as a guide, it's mostly copied from
