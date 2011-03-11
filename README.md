@@ -5,9 +5,10 @@
 Select2Buttons is a jQuery plugin that provides an alternative to the standard html select. The plugin converts selects into a series of button like elements, 
 and if used correctly can provide a better visual representation of the options available to a user.
 
-![select to buttons example](http://o-sam-o.github.com/images/select2ButtonsExample.png)
+[![select to buttons example](http://o-sam-o.github.com/images/select2ButtonsExample.png)](http://o-sam-o.github.com/select2Buttons/)
 
-[Demo available here](http://o-sam-o.github.com/select2Buttons/)
+
+[DEMO AVAILABLE HERE](http://o-sam-o.github.com/select2Buttons/)
 
 This plugin was inspired by [threadless.com](http://www.threadless.com/) and a question by [GreatPotato](http://forrst.com/people/GreatPotato) on Forrst.
 
