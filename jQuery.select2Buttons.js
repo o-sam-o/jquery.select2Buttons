@@ -1,3 +1,16 @@
+/**
+ * .select2Buttons - Convert standard html select into button like elements
+ *
+ * Version: 1.0
+ * Updated: 2011-04-14
+ *
+ *  Provides an alternative look and feel for HTML select buttons, inspired by threadless.com
+ *
+ * Author: Sam Cavenagh (cavenaghweb@hotmail.com)
+ * Doco and Source: https://github.com/o-sam-o/jquery.select2Buttons
+ *
+ * Licensed under the MIT
+ **/
 jQuery.fn.select2Buttons = function(options) {
   return this.each(function(){
     var select = $(this);
