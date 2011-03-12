@@ -1,7 +1,7 @@
 /**
  * .select2Buttons - Convert standard html select into button like elements
  *
- * Version: 1.0
+ * Version: 1.0.1
  * Updated: 2011-04-14
  *
  *  Provides an alternative look and feel for HTML select buttons, inspired by threadless.com
@@ -54,7 +54,7 @@ jQuery.fn.select2Buttons = function(options) {
     select.after(buttonsHtml);
 
     buttonsHtml.find('a').click(function(e){
-      event.preventDefault();
+      e.preventDefault();
 
       buttonsHtml.find('a, span').removeClass('picked');
       $(this).addClass('picked');
