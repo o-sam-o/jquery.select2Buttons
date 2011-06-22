@@ -14,6 +14,7 @@
 jQuery.fn.select2Buttons = function(options) {
   return this.each(function(){
     var select = $(this);
+    var multiselect = select.attr('multiple');
     select.hide();
 
     var buttonsHtml = $('<div class="select2Buttons"></div>');
@@ -33,7 +34,7 @@ jQuery.fn.select2Buttons = function(options) {
         }
 
         // Mark current selection as "picked"
-        if((!options || !options.noDefault) && select.attr("selectedIndex") == selectIndex){
+        if((!options || !options.noDefault) && $(this).attr('selected')){
           liHtml.children('a, span').addClass('picked');
         }
         ulHtml.append(liHtml);
@@ -55,10 +56,20 @@ jQuery.fn.select2Buttons = function(options) {
 
     buttonsHtml.find('a').click(function(e){
       e.preventDefault();
-
-      buttonsHtml.find('a, span').removeClass('picked');
-      $(this).addClass('picked');
-      $(select.find('option')[$(this).attr('data-select-index')]).attr('selected', 'selected');
+      var clickedOption = $(select.find('option')[$(this).attr('data-select-index')]);
+      if(multiselect){
+        if(clickedOption.attr('selected')){
+          $(this).removeClass('picked');
+          clickedOption.removeAttr('selected');
+        }else{
+          $(this).addClass('picked');
+          clickedOption.attr('selected', 'selected');
+        }
+      }else{
+        buttonsHtml.find('a, span').removeClass('picked');
+        $(this).addClass('picked');
+        clickedOption.attr('selected', 'selected');
+      }
       select.trigger('change');
     });
   });
