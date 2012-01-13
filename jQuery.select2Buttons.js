@@ -13,6 +13,7 @@
  **/
 jQuery.fn.select2Buttons = function(options) {
   return this.each(function(){
+    var $ = jQuery;
     var select = $(this);
     var multiselect = select.attr('multiple');
     select.hide();
